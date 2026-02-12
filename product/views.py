@@ -1,13 +1,16 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import Coffee
 
 # Create your views here.
+
+# home end-point
+def home(request):
+    return HttpResponse("Home page of Coffe shop")
 
 # end-point 1: all coffies
 def product_list(request):
     products = list(Coffee.objects.values())
     return JsonResponse(products, safe=False)
-
 
 # end-point 2: coffee details
 def product_details(request, pk):

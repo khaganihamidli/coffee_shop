@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import product_list, product_details
+from .views import home, product_list, product_details
 
 # product app routs
 urlpatterns = [
-    path('', product_list),
-    path('product', product_list),
-    path('product/<int:pk>/', product_details)
+    path('', home, name="home"),
+    path('products', product_list, name="products"),
+    path('products/<int:pk>/', product_details, name="details"),
 ]
